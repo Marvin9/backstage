@@ -215,3 +215,23 @@ auth:
         tenantId:
           $secret:
             env: AUTH_MICROSOFT_TENANT_ID
+costInsights:
+  engineerCost: 200000
+  products:
+    computeEngine:
+      name: Compute Engine
+      icon: SettingsIcon
+    cloudDataflow:
+      name: Cloud Dataflow
+      icon: AccountTree
+    cloudStorage:
+      name: Cloud Storage
+      icon: Storage
+    bigQuery:
+      name: Big Query
+      icon: Search
+  metrics:
+    dailyCost:
+      name: Your Company's Daily Cost
+    DAU:
+      name: Cost Per DAU
