@@ -164,7 +164,7 @@ where users of the plugin may want to put the player, just to make sure they all
 work.</p>
 <h1><a class="anchor" aria-hidden="true" id="5-the-first-user"></a><a href="#5-the-first-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. The First User</h1>
 <p>At this point the only things that anyone that wants to use Sam's plugin needs
-to do is to add
+to do are to add
 <a href="https://raw.githubusercontent.com/sam/backstage-spotify-theme/master/annotation.json#/sam.wise/spotify-track-id">https://raw.githubusercontent.com/sam/backstage-spotify-theme/master/annotation.json#/sam.wise/spotify-track-id</a>
 to their catalog schema, import and add the <code>PlayerWidget</code> on the desired entity
 template pages, and make sure they're providing Spotify auth.</p>
@@ -174,7 +174,7 @@ select a theme tune when creating a new component. Sam jumps on the idea and
 adds a new creation hook that is exported by the plugin. The hook can be
 installed either in a single, all, or component templates that match a label. It
 adds a field as a part of the component creation process with a nice search box
-that allow users to search for a track that they want to use as the theme tune.</p>
+that allows users to search for a track that they want to use as the theme tune.</p>
 <h1><a class="anchor" aria-hidden="true" id="6-return-to-the-repo"></a><a href="#6-return-to-the-repo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Return to the Repo</h1>
 <p>Sam is pretty content at this point, but would like to make it easier for users
 to change the track after creation, preferable using the same search box that
@@ -222,7 +222,7 @@ with schema and functionality to automatically load the value of the
 backend plugin also extends the common GraphQL schema with a mutation that
 updates the track ID in the database.</p>
 <p>On the frontend the Pull Request doesn't change much. It defines the save action
-the was previously using the <code>RepoApi</code> in it's own API.</p>
+the was previously using the <code>RepoApi</code> in its own API.</p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">type</span> ThemeTuneStorageApi = {
   save(entity: Entity, trackId: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt;;
 };
@@ -257,7 +257,7 @@ Sam thinks it's all pretty cool, but doesn't like that the annotation that was
 once an internal concern of the plugin is now becoming a standard in the
 community.</p>
 <p>In order to standardize the annotation in Backstage, Sam submits a Pull Request
-to the Backstage Core repo. The request suggest a new well-known metadata
+to the Backstage Core repo. The request suggests a new well-known metadata
 annotation called <code>spotify.com/track-id</code>, with the same schema definition as
 Sam's label, and refers to Sam's own plugin and the <code>spotify-album-art</code> plugin
 as existing usages. The Backstage maintainers merge the Pull Request, after

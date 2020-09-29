@@ -82,7 +82,7 @@ frameworks and libraries like <a href="https://mochajs.org/">Mocha</a>,
 working on.
 <a href="https://github.com/facebook/jest/issues/2441">This is a bug in Jest</a>.</p>
 <h2><a class="anchor" aria-hidden="true" id="naming-test-files"></a><a href="#naming-test-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Naming Test Files</h2>
-<p>Tests should be name <code>[filename].test.js</code>.</p>
+<p>Tests should be named <code>[filename].test.js</code>.</p>
 <p>For example, the tests for <strong><code>Link.js</code></strong> exist in the file <strong><code>Link.test.js</code></strong>.</p>
 <h2><a class="anchor" aria-hidden="true" id="third-party-dependencies"></a><a href="#third-party-dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Third-Party Dependencies</h2>
 <p>Jest has its own built-in assertion library with <code>expect</code>, so there is no need
@@ -96,7 +96,7 @@ render React components.</p>
 <h2><a class="anchor" aria-hidden="true" id="testing-utilities"></a><a href="#testing-utilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing Utilities</h2>
 <p>TODO.</p>
 <h1><a class="anchor" aria-hidden="true" id="writing-unit-tests"></a><a href="#writing-unit-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writing Unit Tests</h1>
-<p>The following principles are good guides to determining if you are writing high
+<p>The following principles are good guides for determining if you are writing high
 quality frontend unit tests.</p>
 <h2><a class="anchor" aria-hidden="true" id="bad-unit-test-principle"></a><a href="#bad-unit-test-principle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bad Unit Test Principle</h2>
 <blockquote>
@@ -198,7 +198,7 @@ input changes</p>
 <p>✓ <strong>Fufills Blackbox Principle</strong>: Does not verify <em>how</em> the <code>&lt;Loading /&gt;</code>
 component is mounted, just that it is mounted in response to the input.</p>
 <p>✓ <strong>Fulfills Scalability Principle</strong>: If we decide to refactor the entire way
-the loading indicator is displayed the test still works without touching it.</p>
+the loading indicator has displayed the test still works without touching it.</p>
 <p>✓ <strong>Fulfills Broken Functionality Principle</strong>: this test verifies the
 functionality (displaying an indicator) is working, rather than how it is
 working.</p>

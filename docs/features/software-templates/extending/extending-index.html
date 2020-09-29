@@ -68,13 +68,13 @@ You're at the right place.</p>
 <p>This guide is going to take you through how the Scaffolder in Backstage works.
 We'll dive into some jargon and run through what's going on in the backend to be
 able to create these templates. There's also more guides that you might find
-useful at the bottom of this document. At it's core, theres 3 simple stages.</p>
+useful at the bottom of this document. At its core, there are 3 simple stages.</p>
 <ol>
 <li>Pick a skeleton</li>
 <li>Template some variables into the skeleton</li>
 <li>Send the templated skeleton somewhere</li>
 </ol>
-<p>These three steps are translated to the folllowing stages under the hood in the
+<p>These three steps are translated to the following stages under the hood in the
 scaffolder that you will need to know:</p>
 <ol>
 <li>Prepare</li>
@@ -91,7 +91,7 @@ registered with the <code>Preparers</code> with a particular type, which is then
 the router to pick the correct <code>Preparer</code> to run for the <code>Template</code> entity.</p>
 <p><strong>Templater</strong> - The templater is responsible for actually running the chosen
 templater on top of the previously returned temporary directory from the
-<strong>Preprarer</strong>. We advise making these Docker containers as it can keep all
+<strong>Preparer</strong>. We advise making these Docker containers as it can keep all
 dependencies--for example Cookiecutter--self contained and not a dependency on
 the host machine.</p>
 <p><strong>Publisher</strong> - The publisher is responsible for taking the finished directory,
@@ -125,7 +125,7 @@ the <a href="/docs/features/software-catalog/descriptor-format#kind-template">Te
 <p>Once that has been posted, a job will be setup with different stages, and the
 job processor will complete each stage before moving onto the next stage, whilst
 collecting logs and mutating the running job.</p>
-<p>Here's some futher reading that you might find useful:</p>
+<p>Here's some further reading that you might find useful:</p>
 <ul>
 <li><a href="/docs/features/software-templates/adding-templates">Adding your own Template</a></li>
 <li><a href="/docs/features/software-templates/extending/extending-templater">Creating your own Templater</a></li>

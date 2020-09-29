@@ -240,6 +240,10 @@ Apps integration further down the line.</p>
 <p>The Github access token is retrieved from environment variables via the config.
 The config file needs to specify what environment variable the token is
 retrieved from. Your config should have the following objects.</p>
+<p>You can configure who can see the new repositories that the scaffolder creates
+by specifying <code>visibility</code> option. Valid options are <code>public</code>, <code>private</code> and
+<code>internal</code>. <code>internal</code> options is for GitHub Enterprise clients, which means
+public within the organization.</p>
 <h4><a class="anchor" aria-hidden="true" id="gitlab"></a><a href="#gitlab" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gitlab</h4>
 <p>For Gitlab, we currently support the configuration of the GitLab publisher and
 allows to configure the private access token and the base URL of a GitLab
@@ -257,10 +261,20 @@ instance:</p>
         <span class="hljs-string">$secret:</span>
           <span class="hljs-attr">env:</span> <span class="hljs-string">SCAFFOLDER_GITLAB_PRIVATE_TOKEN</span>
 </code></pre>
-<p>You can configure who can see the new repositories that the scaffolder creates
-by specifying <code>visibility</code> option. Valid options are <code>public</code>, <code>private</code> and
-<code>internal</code>. <code>internal</code> options is for GitHub Enterprise clients, which means
-public within the organization.</p>
+<h4><a class="anchor" aria-hidden="true" id="azure-devops"></a><a href="#azure-devops" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Azure DevOps</h4>
+<p>For Azure DevOps we support both the preparer and publisher stage with the
+configuration of a private access token (PAT). For the publisher it's also
+required to define the base URL for the client to connect to the service. This
+will hopefully support on-prem installations as well but that has not been
+verified.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">scaffolder:</span>
+  <span class="hljs-attr">azure:</span>
+    <span class="hljs-attr">baseUrl:</span> <span class="hljs-string">https://dev.azure.com/{your-organization}</span>
+    <span class="hljs-attr">api:</span>
+      <span class="hljs-attr">token:</span>
+        <span class="hljs-string">$secret:</span>
+          <span class="hljs-attr">env:</span> <span class="hljs-string">AZURE_PRIVATE_TOKEN</span>
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="running-the-backend"></a><a href="#running-the-backend" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running the Backend</h3>
 <p>Finally, make sure you have a local Docker daemon running, and start up the
 backend with the new configuration:</p>
