@@ -26,6 +26,7 @@ import {
   StorageApi,
   WebStorage,
 } from '@backstage/core-api';
+import { coreHyperlinkAttr } from '../../helpers';
 
 export default {
   title: 'DismissableBanner',
@@ -89,7 +90,12 @@ export const WithLink = () => (
         message={
           <Typography>
             This is a dismissable banner with a link:{' '}
-            <Link href="http://example.com" color="textPrimary">
+            <Link
+              {...coreHyperlinkAttr({
+                href: 'http://example.com',
+              })}
+              color="textPrimary"
+            >
               example.com
             </Link>
           </Typography>

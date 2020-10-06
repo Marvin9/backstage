@@ -27,6 +27,7 @@ import {
   SupportButton,
   useApi,
   WarningPanel,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 import { catalogApiRef } from '@backstage/plugin-catalog';
 import { Button, Grid, Link, Typography } from '@material-ui/core';
@@ -97,7 +98,12 @@ export const ScaffolderPage = () => {
           <Typography variant="body2">
             Shoot! Looks like you don't have any templates. Check out the
             documentation{' '}
-            <Link href="https://backstage.io/docs/features/software-templates/adding-templates">
+            <Link
+              {...coreHyperlinkAttr({
+                href:
+                  'https://backstage.io/docs/features/software-templates/adding-templates',
+              })}
+            >
               here!
             </Link>
           </Typography>

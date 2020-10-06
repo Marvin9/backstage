@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { Table, TableColumn } from '@backstage/core';
+import { Table, TableColumn, coreHyperlinkAttr } from '@backstage/core';
 import { Box, Link, Typography } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import {
@@ -35,9 +35,10 @@ const columns: TableColumn[] = [
     width: '70px',
     render: (data: any) => (
       <Link
-        href={buildItemUrl(data.org, data.project, data.item.counter)}
-        target="_blank"
-        rel="noreferrer"
+        {...coreHyperlinkAttr({
+          href: buildItemUrl(data.or, data.project, data.item.counter),
+          target: '_blank',
+        })}
       >
         {data.item.counter}
       </Link>

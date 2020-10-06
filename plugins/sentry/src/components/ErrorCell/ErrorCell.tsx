@@ -17,6 +17,7 @@ import React, { FC } from 'react';
 import { SentryIssue } from '../../data/sentry-issue';
 import { Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { coreHyperlinkAttr } from '@backstage/core';
 import { BackstageTheme } from '@backstage/theme';
 
 function stripText(text: string, maxLength: number) {
@@ -47,7 +48,11 @@ export const ErrorCell: FC<{ sentryIssue: SentryIssue }> = ({
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Link href={sentryIssue.permalink}>
+      <Link
+        {...coreHyperlinkAttr({
+          href: sentryIssue.permalink,
+        })}
+      >
         <Typography variant="body1" gutterBottom className={classes.text}>
           {sentryIssue.metadata.type
             ? stripText(sentryIssue.metadata.type, 28)

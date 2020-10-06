@@ -16,7 +16,7 @@
 
 import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { Header, HeaderLabel, Link } from '@backstage/core';
+import { Header, HeaderLabel, Link, coreHyperlinkAttr } from '@backstage/core';
 import { CircularProgress } from '@material-ui/core';
 import { ParsedEntityId } from '../../types';
 import { AsyncState } from 'react-use/lib/useAsync';
@@ -66,7 +66,12 @@ export const TechDocsPageHeader = ({
         <HeaderLabel
           label=""
           value={
-            <a href={locationMetadata.target} target="_blank">
+            <a
+              {...coreHyperlinkAttr({
+                href: locationMetadata.target,
+                target: '_blank',
+              })}
+            >
               <GitHubIcon style={{ marginTop: '-25px', fill: '#fff' }} />
             </a>
           }

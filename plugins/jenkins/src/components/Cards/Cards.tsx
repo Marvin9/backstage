@@ -15,7 +15,11 @@
  */
 import React from 'react';
 import { Link, Theme, makeStyles, LinearProgress } from '@material-ui/core';
-import { InfoCard, StructuredMetadataTable } from '@backstage/core';
+import {
+  InfoCard,
+  StructuredMetadataTable,
+  coreHyperlinkAttr,
+} from '@backstage/core';
 import ExternalLinkIcon from '@material-ui/icons/Launch';
 import { useBuilds } from '../useBuilds';
 import { JenkinsRunStatus } from '../BuildsPage/lib/Status';
@@ -51,7 +55,12 @@ const WidgetContent = ({
         ),
         build: lastRun.fullDisplayName,
         url: (
-          <Link href={lastRun.url} target="_blank">
+          <Link
+            {...coreHyperlinkAttr({
+              href: lastRun.url,
+              target: '_blank',
+            })}
+          >
             See more on Jenkins{' '}
             <ExternalLinkIcon className={classes.externalLinkIcon} />
           </Link>

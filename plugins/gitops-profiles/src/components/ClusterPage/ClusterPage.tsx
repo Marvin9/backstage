@@ -25,6 +25,7 @@ import {
   HeaderLabel,
   useApi,
   githubAuthApiRef,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 
 import { Link } from '@material-ui/core';
@@ -97,10 +98,11 @@ const ClusterPage: FC<{}> = () => {
           columns={columns}
         />
         <Link
+          {...coreHyperlinkAttr({
+            href: `${runLink}?check_suite_focus=true`,
+            target: '_blank',
+          })}
           hidden={runLink === ''}
-          rel="noopener noreferrer"
-          href={`${runLink}?check_suite_focus=true`}
-          target="_blank"
         >
           Details
         </Link>

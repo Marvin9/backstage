@@ -19,7 +19,7 @@ import { EntityNotFound } from './EntityNotFound';
 import { EntityPageLayout } from './EntityPageLayout';
 import { Route, Routes } from 'react-router';
 import { entityRoute, rootRoute } from '../routes';
-import { Content } from '@backstage/core';
+import { Content, coreHyperlinkAttr } from '@backstage/core';
 import { Typography, Link } from '@material-ui/core';
 import { EntityProvider } from './EntityProvider';
 import { useEntity } from '../hooks/useEntity';
@@ -35,7 +35,12 @@ const DefaultEntityPage = () => (
           <Typography variant="body1">
             To override this component with your custom implementation, read
             docs on{' '}
-            <Link target="_blank" href="https://backstage.io/docs">
+            <Link
+              {...coreHyperlinkAttr({
+                href: 'https://backstage.io/docs',
+                target: '_blank',
+              })}
+            >
               backstage.io/docs
             </Link>
           </Typography>

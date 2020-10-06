@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import React from 'react';
+import { coreHyperlinkAttr } from '@backstage/core';
 
 type WithLinkProps = {
   url?: string;
@@ -27,7 +28,7 @@ export const WithLink = ({
   children,
 }: WithLinkProps): JSX.Element =>
   url ? (
-    <a href={url} className={className}>
+    <a {...coreHyperlinkAttr({ href: url })} className={className}>
       {children}
     </a>
   ) : (

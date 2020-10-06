@@ -17,6 +17,7 @@
 import React from 'react';
 import { WarningPanel } from './WarningPanel';
 import { Link, Button } from '@material-ui/core';
+import { coreHyperlinkAttr } from '../../helpers';
 
 export default {
   title: 'Warning Panel',
@@ -30,7 +31,14 @@ export const Default = () => (
       <>
         This example entity is missing something. If this is unexpected, please
         make sure you have set up everything correctly by following{' '}
-        <Link href="http://example.com">this guide</Link>.
+        <Link
+          {...coreHyperlinkAttr({
+            href: 'http://example.com',
+          })}
+        >
+          this guide
+        </Link>
+        .
       </>
     }
   />

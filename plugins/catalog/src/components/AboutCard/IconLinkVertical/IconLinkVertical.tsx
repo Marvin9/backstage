@@ -17,6 +17,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import { makeStyles, Link } from '@material-ui/core';
 import LinkIcon from '@material-ui/icons/Link';
+import { coreHyperlinkAttr } from '@backstage/core';
 
 export type IconLinkVerticalProps = {
   icon?: React.ReactNode;
@@ -65,7 +66,13 @@ export function IconLinkVertical({
   }
 
   return (
-    <Link className={classes.link} href={href} {...props}>
+    <Link
+      className={classes.link}
+      {...coreHyperlinkAttr({
+        href,
+      })}
+      {...props}
+    >
       {icon}
       <span className={classes.label}>{props.label}</span>
     </Link>

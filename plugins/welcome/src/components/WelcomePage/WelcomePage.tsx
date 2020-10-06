@@ -36,6 +36,7 @@ import {
   WarningPanel,
   useApi,
   configApiRef,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 
 const WelcomePage = () => {
@@ -69,7 +70,11 @@ const WelcomePage = () => {
                   the project and we have already begun work on various aspects
                   of these phases. The best way to keep track of the progress is
                   through the&nbsp;
-                  <Link href="https://github.com/spotify/backstage/milestones">
+                  <Link
+                    {...coreHyperlinkAttr({
+                      href: 'https://github.com/spotify/backstage/milestones',
+                    })}
+                  >
                     Milestones
                   </Link>
                   .
@@ -113,7 +118,12 @@ const WelcomePage = () => {
               </Typography>
               <Typography variant="body1" paragraph>
                 We suggest you either check out the documentation for{' '}
-                <Link href="https://github.com/spotify/backstage/blob/master/docs/plugins/create-a-plugin.md">
+                <Link
+                  {...coreHyperlinkAttr({
+                    href:
+                      'https://github.com/spotify/backstage/blob/master/docs/plugins/create-a-plugin.md',
+                  })}
+                >
                   creating a plugin
                 </Link>{' '}
                 or have a look in the code for the{' '}
@@ -121,7 +131,12 @@ const WelcomePage = () => {
                   existing plugins
                 </Link>{' '}
                 in the directory{' '}
-                <Link href="https://github.com/spotify/backstage/tree/master/plugins">
+                <Link
+                  {...coreHyperlinkAttr({
+                    href:
+                      'https://github.com/spotify/backstage/tree/master/plugins',
+                  })}
+                >
                   <code>plugins/</code>
                 </Link>
                 .
@@ -132,15 +147,32 @@ const WelcomePage = () => {
             <InfoCard title="Quick Links">
               <List>
                 <ListItem>
-                  <Link href="https://backstage.io">backstage.io</Link>
+                  <Link
+                    {...coreHyperlinkAttr({
+                      href: 'https://backstage.io',
+                    })}
+                  >
+                    backstage.io
+                  </Link>
                 </ListItem>
                 <ListItem>
-                  <Link href="https://github.com/spotify/backstage/blob/master/docs/plugins/create-a-plugin.md">
+                  <Link
+                    {...coreHyperlinkAttr({
+                      href:
+                        'https://github.com/spotify/backstage/blob/master/docs/plugins/create-a-plugin.md',
+                    })}
+                  >
                     Create a plugin
                   </Link>
                 </ListItem>
                 <ListItem>
-                  <Link href="/explore">Plugin gallery</Link>
+                  <Link
+                    {...coreHyperlinkAttr({
+                      href: '/explore',
+                    })}
+                  >
+                    Plugin gallery
+                  </Link>
                 </ListItem>
               </List>
             </InfoCard>

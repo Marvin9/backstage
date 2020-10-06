@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { DismissableBanner } from '@backstage/core';
+import { DismissableBanner, coreHyperlinkAttr } from '@backstage/core';
 import { Link, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 
@@ -42,7 +42,12 @@ export const WelcomeBanner = () => {
             🎉
           </span>
           Welcome to Backstage! Take a look around and check out our{' '}
-          <Link href="/welcome" color="textPrimary">
+          <Link
+            {...coreHyperlinkAttr({
+              href: '/welcome',
+            })}
+            color="textPrimary"
+          >
             getting started
           </Link>{' '}
           page.

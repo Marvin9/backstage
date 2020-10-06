@@ -25,6 +25,7 @@ import {
   errorApiRef,
   useApi,
   WarningPanel,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 import ExternalLinkIcon from '@material-ui/icons/Launch';
 import { CLOUDBUILD_ANNOTATION } from '../useProjectName';
@@ -61,7 +62,12 @@ const WidgetContent = ({
         ),
         message: lastRun.message,
         url: (
-          <Link href={lastRun.googleUrl} target="_blank">
+          <Link
+            {...coreHyperlinkAttr({
+              href: lastRun.googleUrl ?? '',
+              target: '_blank',
+            })}
+          >
             See more on Google{' '}
             <ExternalLinkIcon className={classes.externalLinkIcon} />
           </Link>

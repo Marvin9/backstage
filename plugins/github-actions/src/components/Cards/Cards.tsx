@@ -30,6 +30,7 @@ import {
   StructuredMetadataTable,
   errorApiRef,
   useApi,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 import ExternalLinkIcon from '@material-ui/icons/Launch';
 import { GITHUB_ACTIONS_ANNOTATION } from '../useProjectName';
@@ -65,7 +66,12 @@ const WidgetContent = ({
         ),
         message: lastRun.message,
         url: (
-          <Link href={lastRun.githubUrl} target="_blank">
+          <Link
+            {...coreHyperlinkAttr({
+              href: lastRun.githubUrl ?? '',
+              target: '_blank',
+            })}
+          >
             See more on GitHub{' '}
             <ExternalLinkIcon className={classes.externalLinkIcon} />
           </Link>

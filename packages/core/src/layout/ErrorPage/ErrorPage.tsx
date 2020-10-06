@@ -20,6 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { BackstageTheme } from '@backstage/theme';
 import { MicDrop } from './MicDrop';
 import { useNavigate } from 'react-router';
+import { coreHyperlinkAttr } from '../../helpers';
 
 interface IErrorPageProps {
   status: string;
@@ -65,7 +66,13 @@ export const ErrorPage = ({
             Go back
           </Link>
           ... or if you think this is a bug, please file an{' '}
-          <Link href="https://github.com/spotify/backstage/issues">issue.</Link>
+          <Link
+            {...coreHyperlinkAttr({
+              href: 'https://github.com/spotify/backstage/issues',
+            })}
+          >
+            issue.
+          </Link>
         </Typography>
       </Grid>
     </Grid>

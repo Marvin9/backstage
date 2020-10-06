@@ -18,7 +18,7 @@ import { Box, IconButton, Link, Typography } from '@material-ui/core';
 import RetryIcon from '@material-ui/icons/Replay';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { generatePath, Link as RouterLink } from 'react-router-dom';
-import { Table, TableColumn } from '@backstage/core';
+import { Table, TableColumn, coreHyperlinkAttr } from '@backstage/core';
 import { JenkinsRunStatus } from '../Status';
 import { useBuilds } from '../../../useBuilds';
 import { useProjectSlugFromEntity } from '../../../useProjectSlugFromEntity';
@@ -133,7 +133,12 @@ const generatedColumns: TableColumn[] = [
     render: (row: Partial<CITableBuildInfo>) => (
       <>
         <p>
-          <Link href={row.source?.url || ''} target="_blank">
+          <Link
+            {...coreHyperlinkAttr({
+              href: row.source?.url || '',
+              target: '_blank',
+            })}
+          >
             {row.source?.branchName}
           </Link>
         </p>
@@ -160,7 +165,12 @@ const generatedColumns: TableColumn[] = [
         <>
           <p>
             {row.tests && (
-              <Link href={row.tests.testUrl || ''} target="_blank">
+              <Link
+                {...coreHyperlinkAttr({
+                  href: row.tests.testUrl || '',
+                  target: '_blank',
+                })}
+              >
                 {row.tests.passed} / {row.tests.total} passed
                 <FailSkippedWidget
                   skipped={row.tests.skipped}

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import React, { FC } from 'react';
-import { Table, TableColumn } from '@backstage/core';
+import { Table, TableColumn, coreHyperlinkAttr } from '@backstage/core';
 import { Link } from '@material-ui/core';
 import { ClusterStatus } from '../../api';
 import { transformStatus } from '../ProfileCatalog/ProfileCatalog';
@@ -25,7 +25,11 @@ const columns: TableColumn[] = [
     field: 'name',
     highlight: true,
     render: (componentData: any) => (
-      <Link href={`/gitops-cluster/${componentData.name}`}>
+      <Link
+        {...coreHyperlinkAttr({
+          href: `/gitops-cluster/${componentData.name}`,
+        })}
+      >
         {componentData.name}
       </Link>
     ),

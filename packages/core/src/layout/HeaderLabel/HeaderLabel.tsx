@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { coreHyperlinkAttr } from '../../helpers';
 import { Link, makeStyles, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
 
@@ -67,7 +68,17 @@ export const HeaderLabel: FC<HeaderLabelProps> = ({ label, value, url }) => {
   return (
     <span className={classes.root}>
       <Typography className={classes.label}>{label}</Typography>
-      {url ? <Link href={url}>{content}</Link> : content}
+      {url ? (
+        <Link
+          {...coreHyperlinkAttr({
+            href: url,
+          })}
+        >
+          {content}
+        </Link>
+      ) : (
+        content
+      )}
     </span>
   );
 };

@@ -24,6 +24,7 @@ import {
   SupportButton,
   useApi,
   WarningPanel,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 import {
   Button,
@@ -123,12 +124,24 @@ const DetailsPage = () => {
               >
                 {details?.name && (
                   <Button>
-                    <a href={details.name}>GCP</a>
+                    <a
+                      {...coreHyperlinkAttr({
+                        href: details.name,
+                      })}
+                    >
+                      GCP
+                    </a>
                   </Button>
                 )}
                 {details?.name && (
                   <Button>
-                    <a href={details.name}>Logs</a>
+                    <a
+                      {...coreHyperlinkAttr({
+                        href: details.name,
+                      })}
+                    >
+                      Logs
+                    </a>
                   </Button>
                 )}
               </ButtonGroup>

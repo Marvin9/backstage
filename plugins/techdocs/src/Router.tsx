@@ -17,7 +17,7 @@
 import React from 'react';
 import { Entity } from '@backstage/catalog-model';
 import { Route, Routes } from 'react-router-dom';
-import { WarningPanel } from '@backstage/core';
+import { WarningPanel, coreHyperlinkAttr } from '@backstage/core';
 
 import {
   rootRouteRef,
@@ -47,7 +47,12 @@ export const EmbeddedDocsRouter = ({ entity }: { entity: Entity }) => {
       <WarningPanel title="Techdocs plugin:">
         <pre>{TECHDOCS_ANNOTATION}</pre> annotation is missing on the entity.
         <br />
-        <a href="https://backstage.io/docs/features/techdocs/creating-and-publishing">
+        <a
+          {...coreHyperlinkAttr({
+            href:
+              'https://backstage.io/docs/features/techdocs/creating-and-publishing',
+          })}
+        >
           Getting Started
         </a>
       </WarningPanel>

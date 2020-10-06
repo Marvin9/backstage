@@ -36,6 +36,7 @@ import {
   StatusAborted,
   useApi,
   githubAuthApiRef,
+  coreHyperlinkAttr,
 } from '@backstage/core';
 import { TextField, List, ListItem, Link } from '@material-ui/core';
 
@@ -340,9 +341,10 @@ const ProfileCatalog: FC<{}> = () => {
           />
           <Link
             hidden={runLink === ''}
-            rel="noopener noreferrer"
-            href={`${runLink}?check_suite_focus=true`}
-            target="_blank"
+            {...coreHyperlinkAttr({
+              href: `${runLink}?check_suite_focus=true`,
+              target: '_blank',
+            })}
           >
             Details
           </Link>
