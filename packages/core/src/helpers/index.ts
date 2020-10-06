@@ -13,15 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import '@testing-library/jest-dom';
-
-require('jest-fetch-mock').enableMocks();
-
-global.window = Object.create(window);
-Object.defineProperty(window, 'location', {
-  writable: true,
-  value: {
-    host: 'backstage.io',
-  },
-});
+export * from './genSecureRel';
