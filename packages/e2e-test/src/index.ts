@@ -17,11 +17,11 @@
 import program from 'commander';
 import chalk from 'chalk';
 import { registerCommands } from './commands';
-import { version } from '../package.json';
+import packageJSON from '../package.json';
 import { exitWithError } from './lib/helpers';
 
 async function main(argv: string[]) {
-  program.name('e2e-test').version(version);
+  program.name('e2e-test').version(packageJSON.version);
 
   registerCommands(program);
 

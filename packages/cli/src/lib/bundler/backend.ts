@@ -36,7 +36,7 @@ export async function serveBackend(
     {
       poll: true,
     },
-    (err: Error) => {
+    err => {
       if (err) {
         console.error(err);
       } else console.log('Build succeeded');

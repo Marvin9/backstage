@@ -84,15 +84,23 @@ export async function createConfig(
   if (checksEnabled) {
     plugins.push(
       new ForkTsCheckerWebpackPlugin({
-        tsconfig: paths.targetTsConfig,
-        eslint: true,
-        eslintOptions: {
-          parserOptions: {
-            project: paths.targetTsConfig,
-            tsconfigRootDir: paths.targetPath,
-          },
+        // tsconfig: paths.targetTsConfig,
+        // eslint: true,
+        // eslintOptions: {
+        //   parserOptions: {
+        //     project: paths.targetTsConfig,
+        //     tsconfigRootDir: paths.targetPath,
+        //   },
+        // },
+        // reportFiles: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
+        eslint: {
+          enabled: true,
+          files: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
         },
-        reportFiles: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
+        typescript: {
+          enabled: true,
+          configFile: paths.targetTsConfig,
+        },
       }),
     );
   }
@@ -130,14 +138,8 @@ export async function createConfig(
     mode: isDev ? 'development' : 'production',
     profile: false,
     node: {
-      module: 'empty',
-      dgram: 'empty',
-      dns: 'mock',
-      fs: 'empty',
-      http2: 'empty',
-      net: 'empty',
-      tls: 'empty',
-      child_process: 'empty',
+      // TODO(Marvin9): Polyfill
+      // dns: 'mock',
     },
     optimization: optimization(options),
     bail: false,
@@ -148,6 +150,15 @@ export async function createConfig(
     context: paths.targetPath,
     entry: [require.resolve('react-hot-loader/patch'), paths.targetEntry],
     resolve: {
+      fallback: {
+        module: false,
+        dgram: false,
+        fs: false,
+        http2: false,
+        net: false,
+        tls: false,
+        child_process: false,
+      },
       extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx'],
       mainFields: ['browser', 'module', 'main'],
       plugins: [
@@ -166,7 +177,7 @@ export async function createConfig(
     output: {
       path: paths.targetDist,
       publicPath: validBaseUrl.pathname,
-      filename: isDev ? '[name].js' : 'static/[name].[hash:8].js',
+      filename: isDev ? '[name].js' : 'static/[name].[contenthash:8].js',
       chunkFilename: isDev
         ? '[name].chunk.js'
         : 'static/[name].[chunkhash:8].chunk.js',
@@ -208,7 +219,7 @@ export async function createBackendConfig(
         modulesDir: paths.rootNodeModules,
         additionalModuleDirs: moduleDirs,
         allowlist: ['webpack/hot/poll?100', ...localPackageNames],
-      }),
+      }) as any,
     ],
     target: 'node' as const,
     node: {
@@ -246,7 +257,7 @@ export async function createBackendConfig(
     },
     output: {
       path: paths.targetDist,
-      filename: isDev ? '[name].js' : '[name].[hash:8].js',
+      filename: isDev ? '[name].js' : '[name].[contenthash:8].js',
       chunkFilename: isDev
         ? '[name].chunk.js'
         : '[name].[chunkhash:8].chunk.js',
@@ -265,15 +276,23 @@ export async function createBackendConfig(
       ...(checksEnabled
         ? [
             new ForkTsCheckerWebpackPlugin({
-              tsconfig: paths.targetTsConfig,
-              eslint: true,
-              eslintOptions: {
-                parserOptions: {
-                  project: paths.targetTsConfig,
-                  tsconfigRootDir: paths.targetPath,
-                },
+              // tsconfig: paths.targetTsConfig,
+              // eslint: true,
+              // eslintOptions: {
+              //   parserOptions: {
+              //     project: paths.targetTsConfig,
+              //     tsconfigRootDir: paths.targetPath,
+              //   },
+              // },
+              // reportFiles: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
+              eslint: {
+                enabled: true,
+                files: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
               },
-              reportFiles: ['**', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
+              typescript: {
+                enabled: true,
+                configFile: paths.targetTsConfig,
+              },
             }),
           ]
         : []),

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import webpack, { Module, Plugin } from 'webpack';
+import webpack, { WebpackPluginInstance, RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundlingOptions, BackendBundlingOptions } from './types';
 import { svgrTemplate } from '../svgrTemplate';
 
 type Transforms = {
-  loaders: Module['rules'];
-  plugins: Plugin[];
+  loaders: RuleSetRule[];
+  plugins: WebpackPluginInstance[];
 };
 
 export const transforms = (
@@ -73,13 +73,13 @@ export const transforms = (
         /\.jpe?g$/,
         /\.png$/,
         /\.frag/,
-        { test: /\.svg/, not: [/\.icon\.svg/] },
+        { not: [/\.icon\.svg/] },
         /\.xml/,
       ],
       loader: require.resolve('url-loader'),
       options: {
         limit: 10000,
-        name: 'static/[name].[hash:8].[ext]',
+        name: 'static/[name].[contenthash:8].[ext]',
       },
     },
     {
@@ -104,7 +104,7 @@ export const transforms = (
     },
   ];
 
-  const plugins = new Array<Plugin>();
+  const plugins = new Array<WebpackPluginInstance>();
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -113,7 +113,7 @@ export const transforms = (
       new MiniCssExtractPlugin({
         filename: 'static/[name].[contenthash:8].css',
         chunkFilename: 'static/[name].[id].[contenthash:8].css',
-      }),
+      }) as any,
     );
   }
 

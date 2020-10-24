@@ -70,7 +70,7 @@ export async function buildBundle(options: BuildOptions) {
   }
 
   printFileSizesAfterBuild(
-    stats,
+    stats as any,
     previousFileSizes,
     paths.targetDist,
     WARN_AFTER_BUNDLE_GZIP_SIZE,
@@ -86,7 +86,7 @@ async function build(compiler: webpack.Compiler, isCi: boolean) {
           const { errors } = formatWebpackMessages({
             errors: [err.message],
             warnings: new Array<string>(),
-          } as webpack.Stats.ToJsonOutput);
+          } as any);
 
           throw new Error(errors[0]);
         } else {

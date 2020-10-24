@@ -16,11 +16,11 @@
 
 import program from 'commander';
 import { exitWithError } from './lib/errors';
-import { version } from '../package.json';
+import packageJSON from '../package.json';
 import createApp from './createApp';
 
 const main = (argv: string[]) => {
-  program.name('backstage-create-app').version(version);
+  program.name('backstage-create-app').version(packageJSON.version);
 
   program
     .description('Creates a new app in a new directory')

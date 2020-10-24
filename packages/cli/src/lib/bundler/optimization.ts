@@ -13,15 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { Options } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 import { BundlingOptions } from './types';
 import { isParallelDefault } from '../parallel';
 
-export const optimization = (
-  options: BundlingOptions,
-): Options.Optimization => {
+// TODO(Marvin9): Define return type of this function when Options.Optimization is available in 'webpack'
+export const optimization = (options: BundlingOptions): any => {
   const { isDev } = options;
 
   return {
@@ -38,6 +35,7 @@ export const optimization = (
       : {}),
     runtimeChunk: 'single',
     splitChunks: {
+      chunks: 'all',
       automaticNameDelimiter: '-',
       cacheGroups: {
         default: false,
@@ -64,9 +62,9 @@ export const optimization = (
           minChunks: 1,
           maxAsyncRequests: Infinity,
           maxInitialRequests: Infinity,
-        } as any, // filename is not included in type, but we need it
+        }, // filename is not included in type, but we need it
         // Group together the smallest modules
-        vendor: {
+        defaultVendors: {
           chunks: 'initial',
           test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
